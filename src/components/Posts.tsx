@@ -2,6 +2,11 @@ import Pagination from "./Pagination"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
+// TODO:
+// WHEN WE OPEN THE BLOG POST IN A NEW TAB, THE ID GETS UNDEFINED
+// URL/POSTS/UNDEFINED
+//WHEN WE OPEN IN THE SAME TAB AS HOME (/), IT WORKS PROPERLY
+
 export interface BlogPost{
   userId: number,
   id: number,

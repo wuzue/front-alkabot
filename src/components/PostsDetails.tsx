@@ -1,3 +1,5 @@
+// MOVED TO [id].tsx
+
 // import { useEffect, useState } from "react"
 // import { Link, useParams } from 'react-router-dom'
 // import { BlogPost } from './Posts'
@@ -22,4 +24,4 @@
 //   </>)
 // }
 
-// export default PostDetails
+ export {}
