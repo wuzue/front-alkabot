@@ -14,6 +14,14 @@ export interface BlogPost{
   body: string,
 }
 
+export interface Comentarios{
+  postId: number,
+  id: number,
+  name: string,
+  email: string,
+  body: string,
+}
+
 function Posts(){
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [currentPage, setCurrentPage] = useState(1)

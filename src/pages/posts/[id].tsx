@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import { BlogPost } from '../../components/Posts'
+import { BlogPost, Comentarios } from '../../components/Posts'
 import { HiOutlineArrowLeft } from 'react-icons/hi'
 import Link from "next/link"
 
@@ -11,6 +11,7 @@ const PostDetails = () =>{
   console.log(router.query);
   
   const [post, setPost] = useState<BlogPost>({ userId: 0, id: 0, title: "", body: "" })
+  const [comments, setComments] = useState<Comentarios[]>([])
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
@@ -18,6 +19,14 @@ const PostDetails = () =>{
       .then(data => setPost(data))
       .catch(error => console.error(`found an error on postdetails: ${error}`))
   }, [id])
+
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+      .then(res => res.json())
+      .then(data => setComments(data))
+      .catch(error => console.error(`error loading comments: ${error}`))
+  }, [])
+
 
   return(<>
     <div id='main-div' className="w-[60%] m-auto">
@@ -29,11 +38,17 @@ const PostDetails = () =>{
           <p className="font-bold text-[2rem] capitalize text-center m-auto">{post.title}</p>
         </div>
         <div id='body' className="w-[60%] pt-[3rem] text-justify  ">
-          <p>{post.body}{post.body}{post.body}{post.body}</p>
-          <br/>
-          <p>{post.body}{post.body}{post.body}</p> 
-          <br/>
-          <p>{post.body}{post.body}{post.body}{post.body}</p>
+          <p className="">{post.body}</p>
+        </div>
+        <div id='comments'>
+          <p className="font-bold">Comentarios:</p>
+          {comments.map(comment => (
+            <div key={comment.id}>
+              <p>Name: {comment.name}</p>
+              <p>Email: {comment.email}</p>
+              <p>Message: {comment.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
