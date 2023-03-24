@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { BlogPost, Comentarios } from '../../components/Posts'
 import { HiOutlineArrowLeft } from 'react-icons/hi'
 import Link from "next/link"
+import Image from "next/image"
 
 const PostDetails = () =>{
   
@@ -37,12 +38,15 @@ const PostDetails = () =>{
   }, [id])
 
   useEffect(() => {
+    
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
       .then(res => res.json())
-      .then(data => setComments(data))
+      .then(data => {
+        setComments(data)})
       .catch(error => console.error(`error loading comments: ${error}`))
   }, [])
-
+  
+  
   return(<>
     <div id='main-div' className="w-[60%] m-auto">
       <div className="w-[70%] m-auto pt-[1rem] pb-[2rem]">
@@ -50,16 +54,17 @@ const PostDetails = () =>{
       </div>
       <div id='blog-post' className="flex flex-col items-center">
         <div id='header' className="w-[75%]">
-          <p className="font-bold text-[2rem] capitalize text-center m-auto">{post.title}</p>
+          <p className="text-[#f2cc8f] text-[2rem] capitalize text-center m-auto">{post.title}</p>
         </div>
-        <div id='body' className="w-[60%] pt-[3rem] pb-[3rem] text-justify  ">
-          <p>Post by: {user && user.name}</p>
+          <p className="mt-[1rem]">Post by: {user && user.name}</p>
+        <div id='body' className="w-[60%] pt-[1rem] pb-[1rem] text-justify text-[1.3rem]">
           <p className="">{post.body}</p>
         </div>
         <div id='comments' className="w-[60%]">
-          <p className="font-bold">Comentários:</p>
+          <div className="mb-[1rem] h-[.5px] bg-[#f2cc8f] w-[50%] text-[#f2cc8f] m-auto"></div>
+          <p className="font-bold text-center">Comentários:</p>
           {comments.map((comment, index) => (
-            <div key={comment.id} className={`p-4 flex flex-col gap-1 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}`}>
+            <div key={comment.id} className={`p-4 flex flex-col gap-1 ${index % 2 === 0 ? 'bg-[#242422]' : 'bg-[#4d4d4c]'}`}>
               <p><span className="font-semibold">Name:</span> {comment.name}</p>
               <p><span className='font-semibold'>Email:</span> {comment.email}</p>
               <p><span className='font-semibold'>Message:</span> {comment.body}</p>
