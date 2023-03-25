@@ -101,12 +101,12 @@ function Posts(){
       </div>
       <div id='footer' className="w-full place-items-center bg-[#f2cc8f] items-center text-[1.3rem] mt-[2rem] pt-[.5rem] pb-[.5rem] font-semibold max-[750px]:w-full">
         <div className="flex justify-center gap-[5rem] max-[750px]:flex-col gap-1 items-center text-[1.2rem]">
-          <p className="text-[#242422]">O que fazemos?</p>
-          <p className="text-[#242422]">Trabalhe conosco</p>
+          <p className="text-[#242422]">O que fazemos? <span className="text-white max-[750px]:hidden">| </span></p>
+          <p className="text-[#242422]">Trabalhe conosco <span className="text-white max-[750px]:hidden">| </span></p>
           <p className="text-[#242422]">Desenvolvedores</p>
         </div>
         <div className="flex justify-center gap-3 mt-[1rem] max-[750px]:gap-1 items-center flex-col">
-          <div className="flex gap-3">
+          <div className="flex gap-[3rem] max-[750px]:gap-[1.5rem]">
           <p className="text-[#242422]"><BsLinkedin/></p>
           <p className="text-[#242422]"><BsFacebook/></p>
           <p className="text-[#242422]"><BsInstagram/></p>

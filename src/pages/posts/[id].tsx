@@ -65,9 +65,9 @@ const PostDetails = () =>{
           <p className="font-bold text-center">Comentários:</p>
           {comments.map((comment, index) => (
             <div key={comment.id} className={`p-4 flex flex-col gap-1 ${index % 2 === 0 ? 'bg-[#242422]' : 'bg-[#4d4d4c]'}`}>
-              <p><span className="font-semibold">Name:</span> {comment.name}</p>
+              <p><span className="font-semibold">Nome:</span> {comment.name}</p>
               <p><span className='font-semibold'>Email:</span> {comment.email}</p>
-              <p><span className='font-semibold'>Message:</span> {comment.body}</p>
+              <p><span className='font-semibold'>Mensagem:</span> {comment.body}</p>
             </div>
           ))}
         </div>
