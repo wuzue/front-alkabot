@@ -73,7 +73,7 @@ function Posts(){
         <p className="text-[#242422] font-bold text-[1.5rem] uppercase">Alkablog</p>
         <p className="text-[#242422]">Contato</p>
       </div>
-      <div id='posts-section' className="w-[50%] m-auto">
+      <div id='posts-section' className="w-[50%] m-auto max-[1359px]:w-[70%] max-[1000px]:w-[85%]">
       {currentPosts.map(post => (
         
         <div key={post.id} className="p-[2rem] m-[1rem] flex flex-col relative">
@@ -95,20 +95,22 @@ function Posts(){
         <p className='font-bold text-[1.1rem] border-[1px] border-gray-500 rounded-[10px] w-[1.5rem] shadow-[0px_8px_24px_rgb(0,0,0,12%)]'><span className='flex justify-center'>{currentPage}</span></p>
         <button className='pl-[.5rem] text-[#f2cc8f] font-[500]' onClick={nextPage}>Next Page</button>
       </div>
-      <div id='footer' className="w-full place-items-center bg-[#f2cc8f] items-center text-[1.3rem] mt-[2rem] pt-[.5rem] pb-[.5rem] font-semibold">
-        <div className="flex justify-center gap-[5rem]">
+      <div id='footer' className="w-full place-items-center bg-[#f2cc8f] items-center text-[1.3rem] mt-[2rem] pt-[.5rem] pb-[.5rem] font-semibold max-[750px]:w-full">
+        <div className="flex justify-center gap-[5rem] max-[750px]:flex-col gap-1 items-center text-[1.2rem]">
           <p className="text-[#242422]">O que fazemos?</p>
           <p className="text-[#242422]">Trabalhe conosco</p>
           <p className="text-[#242422]">Desenvolvedores</p>
         </div>
-        <div className="flex justify-center gap-3 mt-[1rem]">
+        <div className="flex justify-center gap-3 mt-[1rem] max-[750px]:gap-1 items-center flex-col">
+          <div className="flex gap-3">
           <p className="text-[#242422]"><BsLinkedin/></p>
           <p className="text-[#242422]"><BsFacebook/></p>
           <p className="text-[#242422]"><BsInstagram/></p>
-          <label className="flex justify-center align-center gap-2">
+          </div>
+          <label className="flex justify-center align-center gap-2 max-[750px]:flex-col">
             <p className="text-[#242422] text-[1rem]">Assine nossa newsletter: </p>
             <input type='search' placeholder="seuemail@alkabot.com" className="bg-[#f2cc8f] text-[1rem] border-b-[1px] border-[#242422]"/>
-            <p className="text-[1rem] rounded-[10px] bg-[#242422] px-[1rem] shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1),0_2px_4px_-2px_rgb(0,0,0,0.1)]">Enviar</p>
+            <p className="text-[1rem] rounded-[10px] bg-[#242422] px-[1rem] shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1),0_2px_4px_-2px_rgb(0,0,0,0.1)] max-[750px]:w-[50%] m-auto text-center ">Submit</p>
           </label>
         </div>
       </div>
