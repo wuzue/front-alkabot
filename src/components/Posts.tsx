@@ -44,6 +44,10 @@ function Posts(){
   }
 
   useEffect(() => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }, [currentPage])
+
+  useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
       .then(data => {
@@ -69,11 +73,11 @@ function Posts(){
     <div className="flex flex-col m-auto">
       <div id='logo' className="w-[100%] bg-[#f2cc8f] justify-center flex gap-[5rem] text-[1.3rem] pt-[.5rem] pb-[.5rem] shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1),0_2px_4px_-2px_rgb(0,0,0,0.1)] font-semibold">
         {/* <Image src={logoIpsum} alt='sdasd'/> */}
-        <p className="text-[#242422]">Sobre nós</p>
+        <p className="text-[#242422] max-[750px]:hidden">Sobre nós</p>
         <p className="text-[#242422] font-bold text-[1.5rem] uppercase">Alkablog</p>
-        <p className="text-[#242422]">Contato</p>
+        <p className="text-[#242422] max-[750px]:hidden">Contato</p>
       </div>
-      <div id='posts-section' className="w-[50%] m-auto max-[1359px]:w-[70%] max-[1000px]:w-[85%]">
+      <div id='posts-section' className="w-[50%] m-auto max-[1359px]:w-[70%] max-[1000px]:w-[85%] max-[750px]:w-[100%]">
       {currentPosts.map(post => (
         
         <div key={post.id} className="p-[2rem] m-[1rem] flex flex-col relative">
@@ -108,9 +112,9 @@ function Posts(){
           <p className="text-[#242422]"><BsInstagram/></p>
           </div>
           <label className="flex justify-center align-center gap-2 max-[750px]:flex-col">
-            <p className="text-[#242422] text-[1rem]">Assine nossa newsletter: </p>
+            <p className="text-[#242422] text-[1rem] max-[750px]:text-center">Assine nossa newsletter: </p>
             <input type='search' placeholder="seuemail@alkabot.com" className="bg-[#f2cc8f] text-[1rem] border-b-[1px] border-[#242422]"/>
-            <p className="text-[1rem] rounded-[10px] bg-[#242422] px-[1rem] shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1),0_2px_4px_-2px_rgb(0,0,0,0.1)] max-[750px]:w-[50%] m-auto text-center ">Submit</p>
+            <p className="text-[1rem] rounded-[10px] bg-[#242422] px-[1rem] shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1),0_2px_4px_-2px_rgb(0,0,0,0.1)] max-[750px]:w-[50%] m-auto text-center">Submit</p>
           </label>
         </div>
       </div>

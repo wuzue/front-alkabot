@@ -48,19 +48,19 @@ const PostDetails = () =>{
   
   
   return(<>
-    <div id='main-div' className="w-[60%] m-auto">
+    <div id='main-div' className="w-[60%] m-auto max-[750px]:w-full">
       <div className="w-[70%] m-auto pt-[1rem] pb-[2rem]">
         <p className=""><Link href='/' className="hover:text-[blue]"><span className=""><HiOutlineArrowLeft/></span>Voltar</Link></p>
       </div>
       <div id='blog-post' className="flex flex-col items-center">
-        <div id='header' className="w-[75%]">
+        <div id='header' className="w-[75%] max-[750px]:w-[90%]">
           <p className="text-[#f2cc8f] text-[2rem] capitalize text-center m-auto">{post.title}</p>
         </div>
           <p className="mt-[1rem]">Post by: {user && user.name}</p>
-        <div id='body' className="w-[60%] pt-[1rem] pb-[1rem] text-justify text-[1.3rem]">
+        <div id='body' className="w-[60%] pt-[1rem] pb-[1rem] text-justify text-[1.3rem] max-[750px]:w-[90%]">
           <p className="">{post.body}</p>
         </div>
-        <div id='comments' className="w-[60%]">
+        <div id='comments' className="w-[60%] max-[750px]:w-[100%]">
           <div className="mb-[1rem] h-[.5px] bg-[#f2cc8f] w-[50%] text-[#f2cc8f] m-auto"></div>
           <p className="font-bold text-center">Comentários:</p>
           {comments.map((comment, index) => (
