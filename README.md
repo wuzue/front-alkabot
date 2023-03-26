@@ -58,6 +58,9 @@ http://localhost:3000
 
 ![Home Top](/readmeimgs/alka1.png)
 ![Home Bottom](/readmeimgs/alka2.png)
+
+<br>
+
 ![Blog Post](/readmeimgs/alka3.png)
 
 <br>
