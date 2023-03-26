@@ -1,38 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Alkablog é um blog que consome uma API com postagens, usuários e comentários diversos.
 
-## Getting Started
+## Feito para o teste técnico da Alkabot.
 
-First, run the development server:
+## Foi utilizado NextJs com TypeScript e TailwindCSS para cuidar da estilização.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+<br>
+
+### * O Alkablog renderiza as postagens logo na página inicial, e conta também com um sistema de paginação, para que não renderize todas as postagens de uma só vez, deixando a aplicação bem mais agradável visualmente. Também é possível alterar o número padrão de postagens na página inicial. Por padrão são 6 postagens :)
+
+<br>
+
+### Ao clicar em alguma postagem, é carregado o conteúdo dessa postagem, seu autor e os comentários referentes à essa postagem, tudo de forma dinâmica e rápida.
+
+<br>
+
+### Além de contar com um layout responsivo para dispositivos móveis! 📱
+
+<br>
+
+### Ao optar por utilizar NextJs ao invés do ReactJs, a aplicação fica beeem mais rápida por conta da `renderização do lado do servidor` (`SSR`) e de outros fatores. Você pode ler mais [clicando aqui.](https://blog.logrocket.com/create-react-app-vs-next-js-performance-differences/)
+
+<br>
+
+### E ao utilizar o TailwindCSS, não precisamos nos preocupar em ficar abrindo diversos arquivos CSS para ficar conferindo o que estamos alterando, etc... É possível fazer a estilização dentro das próprias tags HTML. O que facilita muito, principalmente pelo fato de vermos qual elemento estamos estilizando. E também devido ao fato de cada estilização ficar dentro de seu respectivo arquivo HTML, não precisando ficar 'linkando' arquivos CSS.
+
+<hr>
+<br>
+
+## Como rodar o projeto?
+<br>
+
+Clone o projeto para a sua máquina:
 ```
+git clone https://github.com/wuzue/front-alkabot
+```
+Navegue para onde o projeto foi clonado:
+```
+cd front-alkabot
+```
+Instale as dependências do projeto:
+```
+yarn
+```
+Inicie o projeto com o comando:
+```
+yarn dev
+```
+E pronto! Agora é só acessar essa URL no seu navegador :D
+```
+http://localhost:3000
+```
+<br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Confira algumas imagens do Alkablog:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<br>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+![Home Top](/readmeimgs/alka1.png)
+![Home Bottom](/readmeimgs/alka2.png)
+![Blog Post](/readmeimgs/alka3.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<br>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<h2 align='center'>Versão Mobile</h2>
 
-## Learn More
+<br>
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ <p align='center'>
+  <img src='readmeimgs\alka4.png' width='40%'>
+</p>
+<p align='center'>
+  <img src='readmeimgs\alka6.png' width='40%'>
+</p>
+<p align='center'>
+  <img src='readmeimgs\alka5.png' width='40%'>
+</p>
