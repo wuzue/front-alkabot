@@ -38,6 +38,12 @@ Navegue para onde o projeto foi clonado:
 ```
 cd front-alkabot
 ```
+
+Instale o Yarn (gerenciador de pacotes) com o comando:
+
+```
+npm install --global yarn
+```
 Instale as dependências do projeto:
 ```
 yarn
