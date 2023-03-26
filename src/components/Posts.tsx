@@ -1,14 +1,7 @@
 import Pagination from "./Pagination"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import Image from "next/image"
-import logoIpsum from '../../public/logoipsum.svg'
 import { BsInstagram, BsLinkedin, BsFacebook } from 'react-icons/bs'
-
-// TODO:
-// WHEN WE OPEN THE BLOG POST IN A NEW TAB, THE ID GETS UNDEFINED
-// URL/POSTS/UNDEFINED
-//WHEN WE OPEN IN THE SAME TAB AS HOME (/), IT WORKS PROPERLY
 
 export interface BlogPost{
   userId: number,
@@ -33,6 +26,7 @@ function Posts(){
   const postsPerPage = 6
   const [user, setUser] = useState<any>()
 
+  // Controla a paginação
   const nextPage = () => {
     setCurrentPage(currentPage + 1)
   }
@@ -43,6 +37,9 @@ function Posts(){
     }
   }
 
+  // Transição suave quando a paginação é ativada.
+  // Volta o foco para o topo da página, controlando variações de padding por causa
+  // do tamanho dos conteúdos do bloco, etc...
   useEffect(() => {
     window.scrollTo({top: 0, behavior: 'smooth'})
   }, [currentPage])
@@ -69,17 +66,16 @@ function Posts(){
   const paginate = (pageNumber:number) => setCurrentPage(pageNumber)
 
   return(<>
-
     <div className="flex flex-col m-auto">
+      {/* header */}
       <div id='logo' className="w-[100%] bg-[#f2cc8f] justify-center flex gap-[5rem] text-[1.3rem] pt-[.5rem] pb-[.5rem] shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1),0_2px_4px_-2px_rgb(0,0,0,0.1)] font-semibold">
-        {/* <Image src={logoIpsum} alt='sdasd'/> */}
         <p className="text-[#242422] max-[750px]:hidden">Sobre nós</p>
         <p className="text-[#242422] font-bold text-[1.5rem] uppercase">Alkablog</p>
         <p className="text-[#242422] max-[750px]:hidden">Contato</p>
       </div>
       <div id='posts-section' className="w-[50%] m-auto max-[1359px]:w-[70%] max-[1000px]:w-[85%] max-[750px]:w-[100%]">
+      {/* usa map para iterar por todos os posts e os renderiza na home, ao inves de puxar post por post por id*/}
       {currentPosts.map(post => (
-        
         <div key={post.id} className="p-[2rem] m-[1rem] flex flex-col relative">
           <div className="flex flex-col">
             <p className="capitalize text-left mb-[1rem] text-[2rem]"><Link href={`/posts/${post.id}`}>{post.title}</Link></p>
@@ -87,17 +83,19 @@ function Posts(){
             <p className="text-[1.25rem] mb-[1rem]">{post.body}</p>
           </div>
         <div className="flex gap-4 absolute bottom-3 right-8">
-          <p>N de Comentários</p>
-          <Link href={`/posts/${post.id}`}>Ler mais</Link>
-          {/* <p className="text-right font-bold">Ler mais</p> */}
+          <Link href={`/posts/${post.id}`} passHref>
+            Ler mais
+          </Link>
         </div>
         </div>
       ))}
       </div>
+      {/* paginação bem simples, que permite navegar entre "páginas" para evitar sobrecarregar a home com '500' posts :D */}
+      {/* é possível alterar a quantidade padrão de posts por pág na linha 26: `const postsPerPage = 6` */}
       <div id='pagination' className="flex justify-center mt-[1rem]">
-        {currentPage === 1 ? null : <button className='pr-[.5rem] text-[#f2cc8f] font-[500]' onClick={previousPage}>Previous Page</button>}
+        {currentPage === 1 ? null : <button className='pr-[.5rem] text-[#f2cc8f] font-[500]' onClick={previousPage}>Anterior</button>}
         <p className='font-bold text-[1.1rem] border-[1px] border-gray-500 rounded-[10px] w-[1.5rem] shadow-[0px_8px_24px_rgb(0,0,0,12%)]'><span className='flex justify-center'>{currentPage}</span></p>
-        <button className='pl-[.5rem] text-[#f2cc8f] font-[500]' onClick={nextPage}>Next Page</button>
+        <button className='pl-[.5rem] text-[#f2cc8f] font-[500]' onClick={nextPage}>Próximo</button>
       </div>
       <div id='footer' className="w-full place-items-center bg-[#f2cc8f] items-center text-[1.3rem] mt-[2rem] pt-[.5rem] pb-[.5rem] font-semibold max-[750px]:w-full">
         <div className="flex justify-center gap-[5rem] max-[750px]:flex-col gap-1 items-center text-[1.2rem]">
